@@ -47,11 +47,15 @@ namespace Task02
                 arr = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                 var filteredCollection = arr.TakeWhile(x => x != 0);
                 // использовать статическую форму вызова метода подсчета среднего
-                double averageUsingStaticForm = Enumerable.Average(filteredCollection.Select(x => x * x));
-                // использовать объектную форму вызова метода подсчета среднего
-                double averageUsingInstanceForm = filteredCollection.Select(x => x * x).Average();
-                Console.WriteLine($"{averageUsingStaticForm:f3}");
-                Console.WriteLine($"{averageUsingInstanceForm:f3}");
+                checked
+                {
+                    System.Collections.Generic.IEnumerable<int> collection = filteredCollection.Select(x => x * x);
+                    double averageUsingStaticForm = Enumerable.Average(filteredCollection.Select(x => x * x));
+                    // использовать объектную форму вызова метода подсчета среднего
+                    double averageUsingInstanceForm = filteredCollection.Select(x => x * x).Average();
+                    Console.WriteLine($"{averageUsingStaticForm:f3}");
+                    Console.WriteLine($"{averageUsingInstanceForm:f3}");
+                }
 
                 // вывести элементы коллекции в одну строку
                 //filteredCollection. Я не придумал как из этого сделать вывод
