@@ -34,9 +34,8 @@ namespace Task02
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Console.ReadLine());
-            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
-            //RunTesk02();
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
+            RunTesk02();
         }
 
         public static void RunTesk02()
