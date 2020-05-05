@@ -60,6 +60,10 @@ namespace Task01
             {
                 Console.WriteLine("FormatException");
             }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
+            }
         }
 
         // Попробуйте осуществить вывод элементов коллекции с учетом разделителя, записав это ОДНИМ ВЫРАЖЕНИЕМ.
