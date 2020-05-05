@@ -47,6 +47,10 @@ namespace Task01
                 // Попробуйте осуществить считывание целочисленного массива, записав это ОДНИМ ВЫРАЖЕНИЕМ.
                 arr = Console.ReadLine().Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                 // использовать синтаксис запросов!
+                if (arr.Length == 0)
+                {
+                    throw new InvalidOperationException();
+                }
                 IEnumerable<int> arrQuery = from item in arr
                                             where (item < 0 || item % 2 == 0)
                                             select item;
@@ -63,6 +67,10 @@ namespace Task01
             catch (OverflowException)
             {
                 Console.WriteLine("OverflowException");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("InvalidOperationException");
             }
         }
 
