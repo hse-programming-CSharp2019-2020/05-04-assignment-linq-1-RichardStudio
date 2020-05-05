@@ -79,6 +79,10 @@ namespace Task01
         public static void PrintEnumerableCollection<T>(IEnumerable<T> collection, string separator)
         {
             Console.WriteLine(string.Join(separator, collection));
+            if (collection.Count() == 0)
+            {
+                throw new InvalidOperationException();
+            }
         }
     }
 }
