@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Xml;
 
 /* В задаче не использовать циклы for, while. Все действия по обработке данных выполнять с использованием LINQ
  * 
@@ -42,23 +43,30 @@ namespace Task02
             try
             {
                 // Попробуйте осуществить считывание целочисленного массива, записав это ОДНИМ ВЫРАЖЕНИЕМ.
-                arr = 
-            }
-            
-            
-            var filteredCollection = arr.
-           
-            try
-            {
-                
+                arr = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                var filteredCollection = arr.TakeWhile(x => x != 0);
                 // использовать статическую форму вызова метода подсчета среднего
-                double averageUsingStaticForm = 
+                double averageUsingStaticForm = Enumerable.Average(filteredCollection.Select(x => x * x));
                 // использовать объектную форму вызова метода подсчета среднего
-                double averageUsingInstanceForm = 
-
+                double averageUsingInstanceForm = filteredCollection.Select(x => x * x).Average();
+                Console.WriteLine($"{averageUsingStaticForm:f3}");
+                Console.WriteLine($"{averageUsingInstanceForm:f3}");
 
                 // вывести элементы коллекции в одну строку
-                filteredCollection.
+                //filteredCollection. Я не придумал как из этого сделать вывод
+                Console.WriteLine(string.Join(" ", filteredCollection));
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("FormatException");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("InvalidOperationException");
             }
           
         }

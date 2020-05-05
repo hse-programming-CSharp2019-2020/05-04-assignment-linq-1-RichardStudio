@@ -78,11 +78,11 @@ namespace Task01
         // P.S. Есть два способа, оставьте тот, в котором применяется LINQ...
         public static void PrintEnumerableCollection<T>(IEnumerable<T> collection, string separator)
         {
-            Console.WriteLine(string.Join(separator, collection));
             if (collection.Count() == 0)
             {
                 throw new InvalidOperationException();
             }
+            Console.WriteLine(string.Join(separator, collection));
         }
     }
 }
