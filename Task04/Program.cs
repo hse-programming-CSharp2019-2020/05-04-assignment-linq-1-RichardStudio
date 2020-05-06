@@ -47,29 +47,38 @@ namespace Task04
                 arr = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                 // использовать синтаксис методов! SQL-подобные запросы не писать!
                 int i = 0;
-                int arrAggregate = arr.Aggregate((res,x) => 
-                    {
-                        if (i % 2 == 0)
-                        {
-                            res -= x;
-                        }
-                        else
-                        {
-                            res += x;
-                        }
-                        i++;
-                        return res;
-                    }
-                    ) + 5;
+                checked
+                {
 
-                int arrMyAggregate = MyClass.MyAggregate(arr);
 
-                Console.WriteLine(arrAggregate);
-                Console.WriteLine(arrMyAggregate);
+                    int arrAggregate = arr.Aggregate((res, x) =>
+                        {
+                            if (i % 2 == 0)
+                            {
+                                res -= x;
+                            }
+                            else
+                            {
+                                res += x;
+                            }
+                            i++;
+                            return res;
+                        }
+                        ) + 5;
+
+                    int arrMyAggregate = MyClass.MyAggregate(arr);
+
+                    Console.WriteLine(arrAggregate);
+                    Console.WriteLine(arrMyAggregate);
+                }
             }
             catch (FormatException)
             {
                 Console.WriteLine("FormatException");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
             }
 
         }
