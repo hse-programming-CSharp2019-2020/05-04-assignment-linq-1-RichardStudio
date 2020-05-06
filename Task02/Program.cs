@@ -58,7 +58,6 @@ namespace Task02
                 }
 
                 // вывести элементы коллекции в одну строку
-                //filteredCollection. Я не придумал как из этого сделать вывод
                 Console.WriteLine(string.Join(" ", filteredCollection));
             }
             catch (FormatException)
